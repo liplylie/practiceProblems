@@ -27,3 +27,16 @@ var mergeTwoLists = function(l1, l2) {
 }
 
 //console.log(mergeTwoLists(link1,link2))
+
+var removeDuplicates = function(nums) {
+    for (var i = 0; i < nums.length; i++){
+        for (var j = i+1; j < nums.length; j++){
+            if (nums[j] === nums[i]){
+                nums.splice(j,1)
+            }
+        }
+    }
+    return nums
+};
+
+//console.log(removeDuplicates([1,1,2,2,4,4]))
