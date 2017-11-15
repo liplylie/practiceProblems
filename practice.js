@@ -1,3 +1,43 @@
+//11/15/2017
+
+// merge two singly linked list 
+var mergeTwoLists = function(l1, l2) {
+    if(!l1) return l2;
+    if(!l2) return l1;
+    
+    if(l1.val < l2.val) {
+        l1.next = mergeTwoLists(l1.next, l2);
+        return l1;
+    } else {
+        l2.next = mergeTwoLists(l1, l2.next);
+        return l2;
+    }
+    
+};
+// remove Element from array and return the array's length
+//BigO = quadratic
+let arrNums = [2,3,3,2,1]
+var removeElement = function(nums, val) {
+    while (nums.includes(val)){
+        nums.splice(nums.indexOf(val), 1)
+    }
+    return nums.length
+};
+//console.log(removeElement(arrNums, 3), 'removeElement')
+//BigO = linear
+var removeElement2 = (nums, val)=>{
+    let i = 0;
+    for ( let j = 0; j < nums.length; j++) {
+        if ( nums[j] !== val){
+            nums[j] === nums[i]
+            i++
+        }
+    }
+    return nums.length
+}
+//console.log(removeElement2(arrNums, 3), 'removeElement2')
+
+
 //11/6/2017
 // reverse a number 
 var reverse = function(x) {
