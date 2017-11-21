@@ -1,3 +1,53 @@
+// 11/21/2017
+//Given a string, find the length of the longest substring without repeating characters.
+let str = 'pwwkew'
+var lengthOfLongestSubstring = function(s) {
+    let uniq = [];
+    let long = "";
+    let count = 0;
+    let length = s.length;
+    while ( count < length){
+        for ( let i = count; i <= s.length-1; i++){
+            if ( !uniq.includes(s[i])){
+                uniq.push(s[i])
+            } else {
+                break;
+            }
+        }
+        if (uniq.length > long.length){
+            long = uniq.join("")
+        }
+        uniq = []
+        count++
+    }
+    return long
+};
+
+console.log(lengthOfLongestSubstring(str), 'hi')
+
+//11/17/2017
+// return length of last word of string
+var lengthOfLastWord = function(s) {
+    if (s.length === 0){
+        return 0
+    }
+    let words = s.split(" ")
+    if ( words[words.length-1].length === 0){
+        for ( let i = words.length -1; i > 0; i--){
+            console.log(words[i], 'asdf')
+            if (words[i]){
+                return words[i].length
+            }
+        } 
+        return 0;
+    } else {
+        let word = words.pop()
+        return word.length
+    }
+  
+};
+
+//console.log(lengthOfLastWord('this is a thing '))
 //11/15/2017
 
 // merge two singly linked list 
