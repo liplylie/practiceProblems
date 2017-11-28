@@ -1,3 +1,62 @@
+// 11/28/2017
+let strArr = ['pre', 'pref', 'prefix']
+var longestCommonPrefix = function(strs) {
+    strs = strs.filter(str =>{
+        return str.length > 0
+    })
+    if (strs.length === 0){
+        return ""
+    } else if ( strs.length === 1){
+        return strs[0]
+    }else {
+        let length = strs.length
+        let x = 1
+        const shortestWord = findShortest(strs)
+        let pre = shortestWord.substring(0,1)
+        while (length){ 
+            
+            if (strs.every(str =>{
+                let test = new RegExp(pre)
+               if (str.search(test) !== - 1) {
+                 return true;
+               } else {
+                   return false
+               }
+            })){
+                length--
+                pre = shortestWord.substring(0,x+=1)
+            } else {
+                return pre
+            }
+        }
+        return pre;
+    }
+};
+
+var findShortest = function(array){
+    let count = array[0].length;
+    let shortest;
+    for (let i = 0; i < array.length-1; i++){
+        if (array[i].length <= count){
+            count = array[i].length
+            shortest = array[i]
+        }
+    }
+    return shortest
+};
+
+            
+// var containsPrefix = function(str){
+//     let test = new RegExp(pre, 'i')
+//     console.log(test,'test')
+//        if (str.search(test) != - 1) {
+//          return true;
+//        } else {
+//            return false
+//        }
+// }
+
+console.log(longestCommonPrefix(['a', 'b']), 'here')
 // 11/27/2017
 
 // roman numeral to int
