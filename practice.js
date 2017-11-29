@@ -56,7 +56,7 @@ var findShortest = function(array){
 //        }
 // }
 
-console.log(longestCommonPrefix(['a', 'b']), 'here')
+//console.log(longestCommonPrefix(['a', 'b']), 'here')
 // 11/27/2017
 
 // roman numeral to int
