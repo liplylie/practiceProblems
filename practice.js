@@ -1,3 +1,18 @@
+// 11/29/2017
+var twoSum = function(nums, target) {
+    if (nums.length === 0){
+        return false;
+    }
+    const hold = {}
+    for ( let i = 0; i < nums.length; i++){
+        if ( hold.hasOwnProperty(nums[i]) ){
+            return [hold[nums[i]], i]
+        } else {
+            hold[target-nums[i]] = i
+        }
+    }
+};
+
 // 11/28/2017
 let strArr = ['pre', 'pref', 'prefix']
 var longestCommonPrefix = function(strs) {
