@@ -1,3 +1,20 @@
+//12/9/2017
+// rotate matrix clockwise
+let matr = [[1,2,3],[4,5,6],[7,8,9]]
+const rotateMatrix = (matrix) => {
+    matrix = matrix.reverse()
+    for ( let x = 0; x < matrix.length; x++){
+        for (let y = x + 1; y < matrix.length; y++){
+            let temp = matrix[x][y]
+            matrix[x][y] = matrix[y][x]
+            matrix[y][x] = temp
+        }
+    }
+    return matrix
+}
+
+console.log(rotateMatrix(matr), 'matr')
+
 // 11/29/2017
 var twoSum = function(nums, target) {
     if (nums.length === 0){
