@@ -1,3 +1,40 @@
+//12/10/2017
+function telephoneWords (digitString) {
+  var permutations = [];
+  var word = '';
+  
+  var buildWord = function(input) {
+    var letters = numbersToLetters[digitString[word.length]];
+    for (var j = 0; j < letters.length; j++) {
+      word += letters[j];
+      if (word.length === digitString.length) {
+        permutations.push(word);
+      } else {
+        buildWord(word);
+      }
+      word = word.slice(0, word.length - 1);
+    }
+  }
+  
+  buildWord(digitString)
+  return permutations;
+}
+
+var numbersToLetters = {
+  '0': ['0'],
+  '1': ['1'],
+  '2': ['A', 'B', 'C'],
+  '3': ['D', 'E', 'F'],
+  '4': ['G', 'H', 'I'],
+  '5': ['J', 'K', 'L'],
+  '6': ['M', 'N', 'O'],
+  '7': ['P', 'Q', 'R', 'S'],
+  '8': ['T', 'U', 'V'],
+  '9': ['W', 'X', 'Y', 'Z']
+};
+
+//console.log(telephoneWords('23'))
+
 //12/9/2017
 // rotate matrix clockwise
 let matr = [[1,2,3],[4,5,6],[7,8,9]]
@@ -13,7 +50,7 @@ const rotateMatrix = (matrix) => {
     return matrix
 }
 
-console.log(rotateMatrix(matr), 'matr')
+//console.log(rotateMatrix(matr), 'matr')
 
 // 11/29/2017
 var twoSum = function(nums, target) {
