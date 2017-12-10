@@ -1,3 +1,16 @@
+# 12/9/2017
+class Solution(object):
+    def rotate(self, matrix):
+        matrix = matrix[::-1]
+        for x in range(len(matrix)):
+            for y in range(x+1, len(matrix)):
+                temp = matrix[x][y]
+                matrix[x][y] = matrix[y][x]
+                matrix[y][x] = temp
+        return matrix
+
+x = Solution()
+print(x.rotate([[1,2,3],[4,5,6],[7,8,9]]))
 # 11/29/2017
 class Solution(object):
     def twoSum(self, nums, target):
