@@ -1,26 +1,23 @@
 //12/10/2017
-function telephoneWords (digitString) {
-  var permutations = [];
-  var word = '';
+function telephoneWords(digitString) {
+  var results = [];
   
-  var buildWord = function(input) {
-    var letters = numbersToLetters[digitString[word.length]];
-    for (var j = 0; j < letters.length; j++) {
-      word += letters[j];
-      if (word.length === digitString.length) {
-        permutations.push(word);
-      } else {
-        buildWord(word);
-      }
-      word = word.slice(0, word.length - 1);
+  function recurse(str) {
+    if (str.length === digitString.length) {
+      results.push(str);
+      return;
+    }
+
+    var current = digitString[str.length];
+    for (var i = 0; i < keypad[current].length; i++) {
+      recurse(str + keypad[current][i]);
     }
   }
-  
-  buildWord(digitString)
-  return permutations;
+  recurse('');
+  return results;
 }
 
-var numbersToLetters = {
+var keypad = {
   '0': ['0'],
   '1': ['1'],
   '2': ['A', 'B', 'C'],
@@ -33,7 +30,7 @@ var numbersToLetters = {
   '9': ['W', 'X', 'Y', 'Z']
 };
 
-//console.log(telephoneWords('23'))
+console.log(telephoneWords('23'))
 
 //12/9/2017
 // rotate matrix clockwise
