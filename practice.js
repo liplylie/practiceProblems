@@ -1,3 +1,34 @@
+//12/16/2017
+var combinationSum = function(candidates, target) {
+    let results = [];
+    const recurse = (numArr) => {
+        
+        let sum = numArr.reduce((a,b)=>{
+            return a+b
+        }, 0)
+        if (sum > target){
+            return
+        } else if (sum === target){
+            numArr = numArr.sort()
+            let flag = false
+            for ( let i = 0; i < results.length; i++){
+                if ( String(results[i]) === String(numArr) ) {
+                    flag = true
+                }
+            }
+            if (flag === false){
+                results.push(numArr)
+            } 
+        }
+        
+        for ( let i = 0; i < candidates.length; i++){
+            recurse([...numArr, candidates[i]])
+        }
+    }
+    recurse([])
+    return results
+};
+
 //12/10/2017
 function telephoneWords(digitString) {
   var results = [];
@@ -30,7 +61,7 @@ var keypad = {
   '9': ['W', 'X', 'Y', 'Z']
 };
 
-console.log(telephoneWords('23'))
+console.log(telephoneWords('234'))
 
 //12/9/2017
 // rotate matrix clockwise
