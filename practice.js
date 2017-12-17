@@ -1,4 +1,47 @@
 //12/16/2017
+
+const isAnagram = (x,y) => {
+    if (x.length !== y.length){
+        return false
+    }
+
+    let check = {}
+    for ( let i = 0; i < x.length; i++) {
+        if (check[x[i]]){
+            check[x[i]]++
+        } else {
+            check[x[i]] = 1
+        }
+    }
+
+    for ( let j=0; j < y.length; j++ ){
+        if (!check[y[j]]){
+            return false
+        }
+        check[y[j]]--
+        if (check[y[j]] < 0){
+            return false
+        }
+    }
+
+    return true
+}
+
+//console.log(isAnagram('pool', 'loop'))
+const isUnique = (str) =>{
+    let check = {}
+    for ( let i = 0; i < str.length; i++ ){
+        if ( check[str[i]]) {
+            return false
+        } else {
+            check[str[i]] = true
+        }
+        
+    }
+    return true
+}
+
+// console.log(isUnique('ball'))
 var combinationSum = function(candidates, target) {
     let results = [];
     const recurse = (numArr) => {
@@ -61,7 +104,7 @@ var keypad = {
   '9': ['W', 'X', 'Y', 'Z']
 };
 
-console.log(telephoneWords('234'))
+// console.log(telephoneWords('234'))
 
 //12/9/2017
 // rotate matrix clockwise
