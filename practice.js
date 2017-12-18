@@ -1,4 +1,35 @@
 // 12/17/2017
+
+var palinPerm = (str) => {
+    str = str.toLowerCase()
+    str = str.split("")
+    let chars = {};
+    let flag = false
+    let isPerm = true
+    for ( let i = 0; i < str.length ; i++ ) {
+        if ( str[i] !== ' '){
+            if ( chars[str[i]] ) {
+                chars[str[i]]++
+            } else {
+                chars[str[i]] = 1
+            }
+        }
+    }
+    Object.keys(chars).forEach(char => {
+        if ( chars[char] % 2 > 0 ) {
+            if ( flag ) {
+                isPerm = false
+            } else {
+                flag = true 
+            }
+        }
+    })
+    return isPerm
+}
+
+console.log(palinPerm('tacocat'))
+
+
 var mergeTrees = function(t1, t2) {
     if (!t1 && !t2) {
         return null
@@ -10,9 +41,8 @@ var mergeTrees = function(t1, t2) {
         t1.right = mergeTrees(t1.right, t2.right)
     }
     
-    if ( t1  && !t2) {
-        t1.left = mergeTrees(t1.left, t2)
-        t1.right = mergeTrees(t1.right, t2)
+     if ( t1  && !t2) {
+        return t1
     }
     
     if ( t2  && !t1) {
