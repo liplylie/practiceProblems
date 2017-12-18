@@ -1,4 +1,53 @@
 // 12/18/2017 
+const stringRotate = (str1, str2) => {
+    if (str1.length !== str2.length) {
+        return false
+    }
+
+    str1 += str1
+
+    return str1.includes(str2)
+}
+
+//console.log(stringRotate('waterbottle', 'erbottlewat'))
+
+const stringCompression = (str) => {
+    let temp = {}
+    let cont = false
+    let newStr = ''
+    for ( let i = 0; i < str.length; i++ ) {
+        if ( temp[str[i]] ) {
+            temp[str[i]]++
+            if (temp[str[i]] > 2) {
+                cont = true
+            }
+        } else { 
+            temp[str[i]] = 1
+        }
+    }
+    if ( cont ){
+        for ( let key in temp ) {
+            newStr += key + temp[key]
+        }
+        return newStr
+    } else {
+        return str
+    }
+}
+
+//console.log(stringCompression('abccbb'))
+
+const oneAway = (str1, str2) => {
+    let count = 0
+    for ( let i = 0; i < str2.length; i++ ){
+        if ( str1.includes(str2[i])) {
+            count++
+        }
+    }
+    return str1.length - count  === 1
+}
+//console.log(oneAway('pale', 'bake'))
+
 var isSameTree = function(p, q) {
     let tree1 = []
     let tree2 = []
@@ -13,7 +62,7 @@ var isSameTree = function(p, q) {
     
     const recurse = (tree, arr) => {
 
-             arr.push(tree.val)
+        arr.push(tree.val)
        
         if (tree.left){
             recurse(tree.left, arr)
@@ -60,7 +109,7 @@ var palinPerm = (str) => {
     return isPerm
 }
 
-console.log(palinPerm('tacocat'))
+//console.log(palinPerm('tacocat'))
 
 
 var mergeTrees = function(t1, t2) {
