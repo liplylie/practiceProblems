@@ -1,3 +1,36 @@
+// 12/18/2017 
+var isSameTree = function(p, q) {
+    let tree1 = []
+    let tree2 = []
+    
+    if (!p && !q){
+        return true
+    }
+    
+    if (!p && q || p && !q){
+        return false
+    } 
+    
+    const recurse = (tree, arr) => {
+
+             arr.push(tree.val)
+       
+        if (tree.left){
+            recurse(tree.left, arr)
+        } else {
+            arr.push('null')
+        }
+        if (tree.right){
+            recurse(tree.right, arr)
+        } else {
+            arr.push('null')
+        }
+    }
+    recurse(p, tree1)
+    recurse(q, tree2)
+    return JSON.stringify(tree1) === JSON.stringify(tree2)
+};
+
 // 12/17/2017
 
 var palinPerm = (str) => {
