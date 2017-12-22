@@ -1,3 +1,38 @@
+// 12/21/2017   
+var isSymmetric = function(root) {
+    if(root == null || (root.right == null && root.left == null) ){
+        return true;
+    }
+
+    root.right = revertTree(root.right);
+    return isSameTree(root.left,root.right);
+
+    function revertTree(node){
+        if(node == null || node.left == null && node.right == null){
+            return node;
+        }
+        var temp = revertTree(node.left);
+        node.left = revertTree(node.right);
+        node.right = temp;
+        return node;
+    }
+
+    function isSameTree(left,right){
+        if(left == null && right== null){
+            return true;
+        }
+
+        if(left == null && right != null || right == null &&left != null){
+            return false;
+        }
+
+        if(left.val != right.val){
+            return false;
+        }
+
+        return isSameTree(left.right, right.right) && isSameTree(left.left, right.left)
+    }
+};f
 // 12/18/2017 
 const stringRotate = (str1, str2) => {
     if (str1.length !== str2.length) {
