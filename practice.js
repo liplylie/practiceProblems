@@ -1,3 +1,16 @@
+// 12/30/2017   
+var reverseList = function(head) {
+    let temp = head
+    let l2 = null
+    while(temp){
+        let current = temp.next
+        temp.next = l2
+        l2 = temp
+        temp = current 
+    }
+    return l2
+};
+
 // 12/21/2017   
 var isSymmetric = function(root) {
     if(root == null || (root.right == null && root.left == null) ){
