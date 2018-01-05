@@ -1,3 +1,20 @@
+//1/4/2017
+const hyperCube = function(number){
+    let max = Math.pow(number, 1/3)
+    let hold = []
+    for ( let i = 1; i <= max; i++ ) {
+        for ( let j = i; j <= max; j++ ) {
+            let sum = Math.pow(i,3) + Math.pow(j,3)
+            if ( sum === number ) {
+                hold.push([i,j])
+            }
+        }
+    }
+    console.log(number + ": " + "(" + hold[0][0] + "," + hold[0][1] + "), " + "(" + hold[1][0] + "," + hold[1][1] + ")")
+}
+
+hyperCube(4104)
+
 // 12/30/2017   
 var reverseList = function(head) {
     let temp = head
@@ -45,7 +62,7 @@ var isSymmetric = function(root) {
 
         return isSameTree(left.right, right.right) && isSameTree(left.left, right.left)
     }
-};f
+};
 // 12/18/2017 
 const stringRotate = (str1, str2) => {
     if (str1.length !== str2.length) {
