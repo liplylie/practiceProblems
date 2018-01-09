@@ -1,4 +1,101 @@
+//1/9/2018
+var insertFromEnd = function(linkedList, value, offset) {
+  //Your beautiful code here
+  let p1 = linkedList
+  let p2 = linkedList
+  let prev = null
+  let length = 0
+  let temp = linkedList
+  
+  while ( temp !== null ) {
+    temp = temp.next
+    length++
+  }
+  
+  if ( length < offset) {
+    return linkedList
+  } else
+  
+  if ( length === offset ) {
+    let newHead = Node(value)
+    newHead.next = p1
+    return newHead
+  }
+  
+  for ( let i = 0; i < offset; i++ ) {
+    p1 = p1.next
+  }
+  
+  while (p1 !== null ) {
+    p1 = p1.next
+    prev = p2
+    p2 = p2.next
+  }
+  
+  prev.next = Node(value)
+  prev.next.next = p2
+  console.log(linkedList, 'asdf')
+  return linkedList
+};
 // 1/8/2018
+var getIntersectionNode = function(headA, headB) {
+    if (!headA || !headB){
+        return null
+    }
+    if (headA == headB){
+        return headA
+    }
+    let tempA = headA
+    let tempALength = 0
+    let tempB = headB
+    let tempBLength = 0
+    
+    while(tempA !== null){
+        tempA = tempA.next
+        tempALength++
+    }
+    while(tempB !== null){
+        tempB = tempB.next
+        tempBLength++
+    }
+    let difference = tempALength >= tempBLength ? tempALength - tempBLength : tempBLength - tempALength
+    let longList = tempALength >= tempBLength ? headA : headB
+    let shortList = tempALength >= tempBLength ? headB : headA
+    for ( let i = 0; i < difference; i++ ) {
+        longList = longList.next
+    }
+    if (longList == shortList){
+        return longList
+    }
+    while (longList !== null) {
+        if (longList.next == shortList.next){
+            return longList.next
+        }
+        longList = longList.next
+        shortList = shortList.next
+    }
+    
+    return null
+};
+var removeElements = function(head, val) {
+    while(head && head.val == val){
+        head = head.next
+    }
+    
+    let temp = head
+    let prev = head
+    while (temp!==null){
+        if (temp.val === val){
+            prev.next = temp.next
+            temp = prev
+        } else {
+            prev = temp
+            temp = temp.next
+        }
+    }
+    return head
+};
+
 var removeNthFromEnd = function(head, n) {
     var n1 = new ListNode();
     var n2 = new ListNode();
