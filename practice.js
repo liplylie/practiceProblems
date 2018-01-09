@@ -1,4 +1,46 @@
-//1/4/2017
+// 1/8/2018
+var removeNthFromEnd = function(head, n) {
+    var n1 = new ListNode();
+    var n2 = new ListNode();
+    var dummy = n2;
+    
+    n1.next = head;
+    n2.next = head;
+    
+    while(n > 0 && n1){
+        n1 = n1.next;
+        n--;
+    }
+    
+    if(n > 0){
+        return head;
+    }
+    
+    while(n1 && n1.next){
+        n1 = n1.next;
+        n2 = n2.next;
+    }
+    
+    n2.next = n2.next.next;
+    
+    return dummy.next;
+};
+var deleteDuplicates = function(head) {
+    if (head === null || head.next === null){
+        return head
+    }
+    let temp = head
+    
+    while (temp.next!== null){
+      if (temp.val === temp.next.val) {
+          temp.next = temp.next.next
+      } else {
+        temp = temp.next
+      }
+    }
+    return head
+};
+//1/4/2018
 const hyperCube = function(number){
     let max = Math.pow(number, 1/3)
     let hold = []
