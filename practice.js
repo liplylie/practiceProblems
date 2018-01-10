@@ -1,3 +1,51 @@
+//1/10/2018
+
+var isPalindrome = function(head) {
+    if ( !head){
+        return true
+    }
+    let results = []
+    let temp = head
+    while (temp !==null){
+        results.push(temp.val)
+        temp=temp.next
+    }
+    let reversed = results.slice().reverse()
+    return JSON.stringify(results) === JSON.stringify(reversed)
+};
+
+var partition = function(head, x) {
+    var p = new ListNode(x-1);
+    p.next = head;
+    head = p;
+    var pre;
+    
+    while(p !== null && p.val < x){ // since we initialize it with x - 1
+        pre = p;
+        p = p.next;
+    }
+    
+    if(p !== null){
+        var cur = pre;
+        while(p !== null){
+            if(p.val < x){
+                var temp = cur.next;
+                pre.next = p.next;
+                cur.next = p;
+                cur = p;
+                p.next = temp;
+                p = pre;
+            }
+            pre = p;
+            p = p.next;
+        }
+    }
+    
+    temp = head;
+    head = head.next;
+    
+    return head;
+};
 //1/9/2018
 var insertFromEnd = function(linkedList, value, offset) {
   //Your beautiful code here
@@ -34,7 +82,7 @@ var insertFromEnd = function(linkedList, value, offset) {
   
   prev.next = Node(value)
   prev.next.next = p2
-  console.log(linkedList, 'asdf')
+  // console.log(linkedList, 'asdf')
   return linkedList
 };
 // 1/8/2018
@@ -152,7 +200,7 @@ const hyperCube = function(number){
     console.log(number + ": " + "(" + hold[0][0] + "," + hold[0][1] + "), " + "(" + hold[1][0] + "," + hold[1][1] + ")")
 }
 
-hyperCube(4104)
+//hyperCube(4104)
 
 // 12/30/2017   
 var reverseList = function(head) {
