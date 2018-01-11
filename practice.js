@@ -1,5 +1,26 @@
-//1/10/2018
 
+
+//1/10/2018
+var hasCycle = function(head) {
+    if (!head || !head.next){
+        return false
+    }
+    let slow = head
+    let fast = head.next
+    while (fast.next){
+        if (slow.val === fast.val){
+            return true
+        }
+        slow = slow.next
+        if (fast.next.next){
+             fast = fast.next.next
+        } else {
+            return false
+        }
+       
+    }
+    return false
+};
 var isPalindrome = function(head) {
     if ( !head){
         return true
