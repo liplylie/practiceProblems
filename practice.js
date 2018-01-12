@@ -1,4 +1,17 @@
 //1/11/2018
+var climbStairs = function(n) {
+    let count = 0
+    let sum = 1
+    let prev = 0
+    while (count < n) {
+        let hold = sum
+        sum+= prev
+        prev = hold
+        count++
+    }
+    return sum
+};
+
 var searchInsert = function(nums, target) {
     for ( let i = 0; i < nums.length; i++) {
         if (nums[i] === target) {
