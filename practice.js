@@ -1,4 +1,15 @@
-
+//1/11/2018
+var searchInsert = function(nums, target) {
+    for ( let i = 0; i < nums.length; i++) {
+        if (nums[i] === target) {
+            return i
+        }
+        if ( nums[i] > target ){
+            return i
+        }
+    }
+    return nums.length
+};
 
 //1/10/2018
 var hasCycle = function(head) {
