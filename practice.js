@@ -1,3 +1,23 @@
+// 1/13/2018
+var sortedArrayToBST = function(nums) {
+    return generate(nums,0,nums.length);
+};
+
+var generate = function(nums, start, end){
+    
+    if(start === end){
+        return null;
+    }
+    var midIndex = start + Math.floor((end - start)/2);
+    var midVal = nums[midIndex];
+    
+    var node = new TreeNode(midVal);
+    node.left = generate(nums, start, midIndex);
+    node.right = generate(nums, midIndex+1, end);
+    
+    return node;
+}
+
 //1/11/2018
 var climbStairs = function(n) {
     let count = 0
