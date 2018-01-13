@@ -1,4 +1,23 @@
 // 1/13/2018
+
+var singleNumber = function(nums) {
+    if (nums.length === 1) {
+        return nums[0]
+    } 
+    let hold = {}
+    for (let i = 0; i < nums.length; i++){
+        if (hold[nums[i]]){
+            hold[nums[i]]++
+        } else {
+            hold[nums[i]] = 1
+        }
+    }
+    for (let key in hold){
+        if (hold[key] === 1){
+            return Number(key)
+        }
+    }
+};
 var sortedArrayToBST = function(nums) {
     return generate(nums,0,nums.length);
 };
