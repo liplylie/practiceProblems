@@ -1,3 +1,14 @@
+// 1/16/2018
+
+const countRec = (num) =>{
+    if (num === 10){
+        return
+    }
+    count(num+1)
+    console.log(num)
+    
+}
+count(0)
 // 1/15/2018
 
 var isBalanced = function(root) {
