@@ -1,3 +1,22 @@
+//1/17/2018
+
+var majorityElement = function(nums) {
+    let appear = nums.length/2
+    let temp = {}
+    for ( let i = 0; i < nums.length; i++){
+        if (!temp.hasOwnProperty(nums[i])){
+            temp[nums[i]] = 1
+        } else {
+            temp[nums[i]]++
+        }
+    }
+    for ( let key in temp){
+        if (temp[key] > appear){
+            return Number(key)
+        }
+    }
+};
+
 // 1/16/2018
 
 const countRec = (num) =>{
