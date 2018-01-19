@@ -1,3 +1,41 @@
+// 1/18/2018
+
+var convertBST = function(root) {
+    if (!root){
+        return null
+    }
+    
+    let treeVals = [];
+    
+    function recurse (node){
+        treeVals.push(node.val)
+        if (node.left !== null){
+            recurse(node.left)
+        }
+        if (node.right !== null){
+            recurse(node.right)
+        }   
+    }
+    recurse(root)
+    function addGT(node){
+        let check = node.val
+        for (let i = 0; i < treeVals.length; i++){
+            if (check < treeVals[i]){
+                node.val += treeVals[i]
+            }
+        }
+        if (node.left !== null){
+            addGT(node.left)
+        }
+        if (node.right !== null){
+            addGT(node.right)
+        }   
+    }
+    console.log(treeVals, 'treeVals')
+    addGT(root)
+    return root
+}
+
 //1/17/2018
 
 var majorityElement = function(nums) {
