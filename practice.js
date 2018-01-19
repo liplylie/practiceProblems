@@ -31,7 +31,6 @@ var convertBST = function(root) {
             addGT(node.right)
         }   
     }
-    console.log(treeVals, 'treeVals')
     addGT(root)
     return root
 }
