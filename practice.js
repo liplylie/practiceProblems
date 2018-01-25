@@ -1,3 +1,24 @@
+// 1/24/2018
+var firstUniqChar = function(s) {
+    let obj = {}
+    for (let i = 0; i < s.length; i++){
+        if (!obj[s[i]]) {
+            obj[s[i]] = 1
+        } else {
+            obj[s[i]] ++
+        }
+    } 
+    let check
+    console.log(obj)
+    for ( var key in obj) {
+        if (obj[key] === 1){
+            check = key
+            return s.indexOf(key)
+        }
+    }
+    return -1
+};
+
 // 1/23/2018
 
 var fizzBuzz = function(n) {
@@ -10,7 +31,7 @@ var fizzBuzz = function(n) {
         } else if (i % 5 === 0){
             results.push("Buzz")
         } else {
-        results.push(i.toString())
+        results.push("" + i)
         }
     }
     return results
