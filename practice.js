@@ -1,4 +1,13 @@
 // 1/24/2018
+
+var firstUniqCharRefactor = function(s) {
+        for(var i = 0; i < s.length; i++) {
+             if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+                return i; 
+            } 
+         }
+        return -1;
+};
 var firstUniqChar = function(s) {
     let obj = {}
     for (let i = 0; i < s.length; i++){
