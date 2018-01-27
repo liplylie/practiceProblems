@@ -1,3 +1,20 @@
+// 1/25/2018
+
+var maxProfit = function(prices) {
+    let maxDifference = 0
+    for (let i = 0; i < prices.length; i++){
+        for (let j = i+ 1; j < prices.length; j++){
+            if (prices[j] > prices[i]){
+                maxDifference = Math.max(maxDifference, prices[j] - prices[i])
+            } 
+            if (prices[j] < prices[i]){
+                break
+            }
+        }
+    }
+   return maxDifference
+};
+
 // 1/24/2018
 
 var firstUniqCharRefactor = function(s) {
