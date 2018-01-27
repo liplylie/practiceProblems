@@ -1,5 +1,20 @@
 // 1/25/2018
 
+var maxProfitRefactored = function(prices) {
+    let smallest = Number.MAX_VALUE
+    let maxDifference = 0
+   
+    for (let i = 0; i < prices.length; i++) {
+       if (prices[i] < smallest) {
+       smallest = prices[i]
+       } else {
+        maxDifference = Math.max(prices[i] - smallest, maxDifference)
+       } 
+    }
+   
+   return maxProfit;
+};
+
 var maxProfit = function(prices) {
     let maxDifference = 0
     for (let i = 0; i < prices.length; i++){
