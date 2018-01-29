@@ -1,3 +1,26 @@
+// 1/26/2018
+
+var invertTreeBFS = function(root) {
+    if (!root){
+        return []
+    }
+    let queue = [root]
+    while(queue.length){
+        let node = queue.shift()
+        let temp = node.right
+        node.right = node.left
+        node.left = temp
+        if (node.left){
+            queue.push(node.left)
+        }
+        if (node.right){
+            queue.push(node.right)
+        }
+    }
+    return root
+};
+
+
 // 1/25/2018
 
 var maxProfitRefactored = function(prices) {
