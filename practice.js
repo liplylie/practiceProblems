@@ -1,6 +1,18 @@
+// 2/1/2018
+
+
+function hire(arr){
+  let unique = [... new Set(arr)]
+  return unique
+}
+let candidates = ['Jordan', 'other', 'other', 'other', 'other']
+
+console.log(hire(candidates))
+
 // 1/26/2018
 
 var invertTreeBFS = function(root) {
+
     if (!root){
         return []
     }
@@ -189,7 +201,7 @@ const countRec = (num) =>{
     console.log(num)
     
 }
-count(0)
+//count(0)
 // 1/15/2018
 
 var isBalanced = function(root) {
