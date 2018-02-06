@@ -1,3 +1,25 @@
+// 2/6/2018
+
+var diameterOfBinaryTree = function(root) {
+    var maxDiameter = -1;
+    var getDepth = function(root) {
+        if (root === null) {
+            return 0;
+        }
+        var leftDepth = getDepth(root.left);
+        var rightDepth = getDepth(root.right);
+        
+        maxDiameter = Math.max(maxDiameter, leftDepth + rightDepth);
+        maxDepth = Math.max(leftDepth, rightDepth) + 1;
+        return maxDepth;
+    };
+    
+    if (root === null) return 0;
+    getDepth(root);
+    
+    return maxDiameter;
+};
+
 // 2/5/2018
 
 var addStrings = function(num1, num2) {
@@ -1131,4 +1153,4 @@ var removeDuplicates = function(nums) {
     return nums
 };
 
-//console.log(removeDuplicates([1,1,2,2,4,4]))
+// console.log(removeDuplicates([1,1,2,2,4,4]))
