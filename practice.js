@@ -1,5 +1,30 @@
 // 2/8/2018
-
+var generate = function(numRows) {
+    if (numRows === 0){
+        return []
+    }
+    if (numRows === 1) {
+        return [[1]]
+    }
+    if (numRows === 2) {
+        return [[1],[1,1]]
+    }
+    
+    let results = [[1],[1,1]]
+    let count = 2
+    let index = 1
+    while (count < numRows){
+        let nextArray = [1]
+        for (let i = 1; i < count; i++){
+            nextArray.push( (results[index][i] + results[index][i-1]) )
+        }
+        nextArray.push(1)
+        results.push(nextArray)
+        index+=1
+        count+=1
+    }
+    return results
+};
 // 2/6/2018
 
 var diameterOfBinaryTree = function(root) {
