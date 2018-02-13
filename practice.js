@@ -1,3 +1,22 @@
+// 2/12/2018
+var rob = function(nums) {
+    let a = 0
+    let b = 0
+    for ( let i = 0; i < nums.length; i++) {
+        if (i % 2 === 0) {
+            a = Math.max(a + nums[i], b)
+            console.log(a,'a')
+        } 
+        else {
+            b = Math.max(a , b + nums[i])
+            console.log(b,'b')
+        }
+    }
+    return Math.max(a,b)
+    
+};
+
+
 // 2/8/2018
 var generate = function(numRows) {
     if (numRows === 0){
@@ -76,7 +95,7 @@ function hire(arr){
 }
 let candidates = ['Jordan', 'other', 'other', 'other', 'other']
 
-console.log(hire(candidates))
+// console.log(hire(candidates))
 
 // 1/26/2018
 
