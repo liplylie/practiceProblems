@@ -1,3 +1,11 @@
+// 2/13/2018
+var rotateArray = function(nums, k) {
+    for ( ; k > 0; k--){
+        let hold = nums.pop()
+        nums.unshift(hold)
+    }
+};
+
 // 2/12/2018
 var rob = function(nums) {
     let a = 0
