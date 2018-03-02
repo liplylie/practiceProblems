@@ -1,3 +1,34 @@
+// 3/1/2018
+
+var levelOrderBottom = function(root) {
+    if (!root){
+        return []
+    }
+    
+    let queue = [root]
+    let returnArray = [[root.val]]
+    while( queue.length ) {
+        let nodeArray = []
+        let size = queue.length
+        for (let i = 0; i < size; i++){
+            let node = queue.shift()
+            if (node.left){
+                nodeArray.push(node.left.val)
+                queue.push(node.left)
+            }
+            if (node.right){
+                nodeArray.push(node.right.val)
+                queue.push(node.right)
+            }
+
+        }
+      if (nodeArray.length > 0){
+        returnArray.unshift(nodeArray)
+      }
+    }
+    return returnArray
+};
+
 // 2/19/2018
 
 // 2/13/2018
