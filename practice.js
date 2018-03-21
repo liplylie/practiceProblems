@@ -1,3 +1,54 @@
+//3/20/2018
+
+function spiralTraversal (matrix) {
+  let t = 0
+  let b = matrix.length - 1
+  let l = 0
+  let r = matrix[0].length - 1
+  let direction = 0
+  let arr = []
+  while( t<=b && l <=r ){
+    if (direction === 0){
+      for (let i = l; i <= r; i++){
+        console.log(matrix[t][i], 't')
+        arr.push(matrix[t][i])
+      }
+      t +=1
+    }
+    
+    else if (direction === 1){
+      console.log ('here',r)
+      for (let i = t; i <= b; i++){
+        console.log(matrix[i][r], 'r')
+        arr.push(matrix[i][r])
+      }
+      r -=1
+    }
+    
+    else if (direction === 2){
+      for (let i = r; i >= l; i--){
+        console.log(matrix[b][i], 'b')
+        arr.push(matrix[b][i])
+      }
+      b -=1
+    }
+    
+    else if (direction === 3){
+      for (let i = b; i >= t; i--){
+        console.log(matrix[i][l], 'l')
+        arr.push(matrix[i][l])
+      }
+      l +=1
+    }
+    else if (direction === 4){
+      direction = -1
+    }
+    direction += 1
+    
+  }
+  return arr
+}
+
 // 3/1/2018
 
 var levelOrderBottom = function(root) {
