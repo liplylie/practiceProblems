@@ -1,18 +1,23 @@
 // 3/22/2018
 
 
+
 let bubbleSort = function(array) {
-    for (let i = 0; i < array.length; i++){
-      for (let j = i+1; j < array.length; j++){
-        if (array[i] > array[j]){
-          let temp = array[i]
-          array[i] = array[j]
-          array[j] = temp
-        }
-      }
-    }
-    return array
-};
+   let isSorted = false
+   while(!isSorted){
+     isSorted = true
+     for (let i = 0; i < array.length; i++){
+       if (array[i] > array[i+1]){
+         let temp = array[i]
+         array[i] = array[i+1]
+         array[i+1] = temp
+         isSorted = false
+       }
+     }
+   }
+   return array
+}
+
 
 
 //3/20/2018
