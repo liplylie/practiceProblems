@@ -1,5 +1,19 @@
 //3/25
-
+function insertionSort (array) {
+  // Write your code here, and
+  // return your final answer.
+  for (let i = 1; i < array.length; i++){
+    let current = array[i].value
+    let switchIndex = i
+    while( switchIndex > 0 && array[switchIndex - 1].value > current){
+      array[switchIndex].value = array[switchIndex-1].value
+      switchIndex -=1
+    }
+    array[switchIndex].value = current
+  }
+  console.log(array,'array')
+  return array
+}
 // 3/22/2018
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++){
