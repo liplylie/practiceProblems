@@ -1,3 +1,5 @@
+//3/25
+
 // 3/22/2018
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++){
