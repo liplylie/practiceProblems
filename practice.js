@@ -1,3 +1,83 @@
+// 09/25
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function (headA, headB) {
+    if (!headA || !headB) return null;
+    let lengthA = 0;
+    let lengthB = 0;
+    let tempA = headA;
+    let tempA2 = headA;
+    let tempB = headB;
+    let tempB2 = headB;
+    while (tempA) {
+        tempA = tempA.next;
+        lengthA++
+    }
+    while (tempB) {
+        tempB = tempB.next;
+        lengthB++
+    }
+
+    if (lengthA === 0 && lengthB === 0) {
+        return true
+    }
+
+    if (lengthA === lengthB) {
+        while (tempA2) {
+            console.log(tempA2, 'piss while')
+            if (tempA2.val === tempB2.val) {
+                console.log('true')
+                return tempA2
+            }
+            tempA2 = tempA2.next;
+            tempB2 = tempB2.next;
+        }
+    }
+
+    if (lengthA > lengthB) {
+        let difference = lengthA - lengthB;
+
+        for (let i = 0; i < difference; i++) {
+            tempA2 = tempA2.next
+        }
+
+        while (tempA2) {
+            if (tempA2.val == tempB2.val) {
+                return tempA2
+            }
+            tempA2 = tempA2.next;
+            tempB2 = tempB2.next;
+        }
+    } else if (lengthA < lengthB) {
+        let difference = lengthB - lengthA;
+
+        for (let i = 0; i < difference; i++) {
+            tempB2 = tempB2.next
+        }
+
+        while (tempB2) {
+            if (tempB2.val == tempA2.val) {
+                return tempB2
+            }
+            tempB2 = tempB2.next;
+            tempA2 = tempA2.next;
+        }
+    }
+    return null
+
+};
+
 // 09/24
 var hasCycle = function (head) {
     if (!head) {
