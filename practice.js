@@ -1,17 +1,34 @@
 // 09/25
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+var removeNthFromEnd = function (head, n) {
+    let temp1 = head;
+    let temp2 = head;
+    let length = 0;
+    if (!head || !head.next) {
+        return []
+    }
+    while (temp1.next) {
+        temp1 = temp1.next
+        length++
+    }
+    let difference = length - n;
+    if (difference < 0) {
+        head = head.next
+    } else {
+        for (let i = 0; i < difference; i++) {
+            temp2 = temp2.next
+        }
+        if (temp2.next.next) {
+            temp2.next = temp2.next.next
+        } else {
+            temp2.next = null
+        }
+    }
 
-/**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
- */
+
+
+    return head;
+};
+
 var getIntersectionNode = function (headA, headB) {
     if (!headA || !headB) return null;
     let lengthA = 0;
