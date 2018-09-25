@@ -1,3 +1,20 @@
+// 09/24
+var hasCycle = function (head) {
+    if (!head) {
+        return false
+    }
+    let snail = head;
+    let jaguar = head;
+    while (jaguar.next && jaguar.next.next) {
+        snail = snail.next;
+        jaguar = jaguar.next.next;
+        if (jaguar.val === snail.val) {
+            return true
+        }
+    }
+    return false;
+};
+
 //3/25
 function insertionSort (array) {
   // Write your code here, and
