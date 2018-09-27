@@ -1,15 +1,41 @@
+// 09/27
+
+var removeElements = function (head, val) {
+    if (!head) {
+        return []
+    }
+    if (!head.next) {
+        if (head.val === val) {
+            return null
+        } else {
+            return head
+        }
+    }
+    while (head.val === val) {
+        if (head.next) {
+            head = head.next
+        } else {
+            return null
+        }
+    }
+    let temp = head;
+    while (temp) {
+        if (temp.next && temp.next.val === val) {
+            if (temp.next.next) {
+                temp.next = temp.next.next
+            } else {
+                temp.next = null;
+                return head;
+            }
+        } else {
+
+            temp = temp.next
+        }
+    }
+    return head;
+};
+
 // 09/26
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
 var reverseList = function (head) {
     if (!head) {
         return null
@@ -26,7 +52,6 @@ var reverseList = function (head) {
         prev = temp
         temp = cur;
     }
-    console.log(head, "head")
     return prev
 };
 
