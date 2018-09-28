@@ -1,5 +1,28 @@
 // 09/27
-
+var oddEvenList = function (head) {
+    if (!head || !head.next || !head.next.next) {
+        return head
+    }
+    let odd = head;
+    let even = head.next;
+    let temp = even;
+    while (odd && temp.next) {
+        odd.next = temp.next;
+        odd = odd.next;
+        if (!odd.next) {
+            temp.next = null;
+            odd.next = even;
+            break;
+        }
+        temp.next = odd.next
+        temp = temp.next
+        if (!temp.next) {
+            odd.next = even
+            break;
+        }
+    }
+    return head
+};
 var removeElements = function (head, val) {
     if (!head) {
         return []
