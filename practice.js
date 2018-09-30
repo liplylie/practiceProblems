@@ -1,4 +1,60 @@
 // 09/29
+
+
+var addTwoNumbers = function (l1, l2) {
+    let temp1 = l1;
+    let temp2 = l2;
+    let l3 = new ListNode(0)
+    let temp3 = l3;
+    let carry;
+    while (temp1 && temp2) {
+        temp3.val = temp1.val + temp2.val;
+        if (carry) {
+            temp3.val = temp3.val + 1;
+            carry = false;
+        }
+        if (temp3.val >= 10) {
+            temp3.val = temp3.val % 10;
+            carry = true;
+        }
+        if (temp1.next && temp2.next) {
+            temp3.next = new ListNode(0)
+            temp3 = temp3.next;
+        }
+        temp1 = temp1.next;
+        temp2 = temp2.next;
+
+        if (!temp1 && temp2) {
+            temp3.next = temp2;
+            break;
+
+        }
+
+        if (!temp2 && temp1) {
+            temp3.next = temp1;
+            break;
+
+        }
+    }
+
+    while (carry) {
+        if (temp3.next) {
+            temp3.next.val = temp3.next.val + 1
+            temp3 = temp3.next
+            if (temp3.val >= 10) {
+                temp3.val = 0;
+            } else {
+                carry = false;
+            }
+        } else {
+            temp3.next = new ListNode(1)
+            carry = false;
+        }
+
+
+    }
+    return l3
+};
 var mergeTwoLists = function (l1, l2) {
     if (!l1 && !l2) {
         return null
