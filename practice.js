@@ -1,3 +1,63 @@
+// 09/29
+var mergeTwoLists = function (l1, l2) {
+    if (!l1 && !l2) {
+        return null
+    }
+    if (!l1 && l2) {
+        return l2
+    }
+    if (l1 && !l2) {
+        return l1
+    }
+
+    let temp1 = l1;
+    let temp2 = l2;
+    let l3
+    let ret
+    if (temp1.val <= temp2.val) {
+        l3 = temp1;
+        temp1 = l3.next;
+        ret = l1
+    } else {
+        l3 = temp2;
+        temp2 = l3.next;
+        ret = l2
+    }
+
+    if (!temp1) {
+        l3.next = temp2;
+        return l3
+    }
+
+    if (!temp2) {
+        l3.next = temp1;
+        return l3
+    }
+
+    while (l3) {
+        if (!temp2) {
+            l3.next = temp1;
+            return ret
+            break;
+        }
+        if (!temp1) {
+            l3.next = temp2;
+            break
+        }
+        if (temp1.val > temp2.val) {
+            l3.next = temp2;
+            l3 = l3.next;
+            temp2 = l3.next
+        } else {
+            l3.next = temp1;
+            l3 = l3.next;
+            temp1 = l3.next
+        }
+
+    }
+    return ret;
+};
+
 // 09/27
 var oddEvenList = function (head) {
     if (!head || !head.next || !head.next.next) {
