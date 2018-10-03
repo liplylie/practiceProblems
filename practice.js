@@ -1,3 +1,25 @@
+// 10/3
+var isSymmetric = function (root) {
+    if (!root) return true
+    return helper(root.left, root.right)
+};
+
+let helper = (node1, node2) => {
+    if (!node1 && !node2) {
+        return true;
+    }
+    if (!node1 || !node2) {
+        return false;
+    }
+    if (node1.val === node2.val) {
+        if (helper(node1.left, node2.right) && helper(node2.left, node1.right)) {
+            return true
+        }
+    }
+    return false
+
+}
+
 // 09/29
 
 
