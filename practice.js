@@ -1,3 +1,25 @@
+// 10/4
+var buildTree = function (inorder, postorder) {
+    let inorderObj = inorder.reduce((a, v, i) => (a[v] = i, a), {})
+    return dfs(inorder.length - 1, 0, inorder.length - 1);
+
+    function dfs(index, startPos, endPos) {
+        if (startPos > endPos) return null;
+
+        var node = new TreeNode(postorder[index]);
+        if (startPos === endPos) {
+            return node
+        }
+        var pos = inorderObj[postorder[index]]
+
+        node.left = dfs(index - 1 - (endPos - pos), startPos, pos - 1);
+        node.right = dfs(index - 1, pos + 1, endPos);
+
+        return node;
+    }
+}
+
+
 // 10/3
 var isSymmetric = function (root) {
     if (!root) return true
